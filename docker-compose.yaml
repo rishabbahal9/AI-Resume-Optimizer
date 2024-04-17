@@ -1,0 +1,18 @@
+version: '3.8'
+services: 
+  backend:
+    build: ./backend
+    ports:
+      - '5002:5000'
+    env_file:
+      - ./backend/.env
+  frontend:
+    build: ./frontend
+    ports:
+      - '3007:3000'
+    env_file:
+      - ./frontend/.env
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
