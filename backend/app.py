@@ -32,11 +32,21 @@ def optimize_resume():
             """ + request_data['jobDescription']},
             {"role": "user", "content": """My Resume:""" +
                 request_data['currentResume']},
-            {"role": "user", "content": """Please update my resume to match the job description. 
-             Update necessary parts only. Do not change the overall tone of the resume. 
-             Make sure Resume passes ATS. Return the response in json format.
+            {"role": "user", "content": """
+            Analyze the job description to identify key skills, qualifications, and experiences that are emphasized, and then modify the current resume to highlight these aspects, ensuring it is better tailored to pass through ATS filters.
+
+The function should perform the following steps:
+
+Extract Keywords: Use natural language processing to parse the job description and identify the most important words and phrases, such as required skills, qualifications, preferred experiences, and industry-specific terminology.
+Analyze Resume: Check the current resume for the presence of these keywords and phrases. Evaluate which sections of the resume (e.g., summary, work experience, skills) already contain relevant terms and which are lacking.
+Modify Resume: Update the resume to include missing keywords in a natural and contextually appropriate way. This might involve rewriting bullet points under job experiences, adding new skills, or adjusting the summary to reflect the terminology found in the job description.
+Optimization Feedback: Optionally, the function could generate a brief report highlighting changes made and suggesting further improvements that could be made manually, such as structural changes or additional details that could strengthen the resume.
+Return Updated Resume: Output the revised version of the resume as a string.
+Include error handling to manage cases where input strings are empty or do not contain enough information to perform a meaningful analysis.
+             
+              Return the response in json format.
              Example response json format:
-             {"optimizedResume": "Updated Resume text in string format..."}
+             {"optimizedResume": "Updated Resume text..."}
              """},
             {"role": "user", "content": request_data['customInstructions']},
         ]
