@@ -26,3 +26,7 @@ $ docker-compose up -d
 - You can access the app using http://localhost:3007
 
 To run the frontend and backend individually, instructions are given in Readme.md section of the frontend and backend directories.
+
+## Some screenshots of the application
+![SS1.png](screenshots/SS1.png)
+![SS2.png](screenshots/SS2.png)
